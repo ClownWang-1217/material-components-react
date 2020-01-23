@@ -1,0 +1,7 @@
+@import './exports';
+
+@include mdc-checkbox-core-styles;
+
+.mdc-checkbox__background {
+  border-radius: $mdc-checkbox-shape-radius;
+}

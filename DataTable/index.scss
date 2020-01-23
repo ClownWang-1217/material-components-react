@@ -1,0 +1,6 @@
+@import "./exports";
+@include mdc-data-table-core-styles;
+@include mdc-data-table-theme-baseline;
+.custom-thead{
+    font-weight: 700;
+}

@@ -1,0 +1,18 @@
+@import "../functions";
+.mdc-select-helper-text {
+  @include mdc-typography(caption);
+  @include mdc-typography-baseline-top(16px);
+
+  margin: 0;
+  transition: mdc-select-transition(opacity);
+  opacity: 0;
+  will-change: opacity;
+}
+
+.mdc-select-helper-text--persistent {
+  transition: none;
+  opacity: 1;
+  will-change: initial;
+}
+
+@import "./exports"

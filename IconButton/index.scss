@@ -1,0 +1,16 @@
+@import "./exports";
+@import "@material/icon-button/mdc-icon-button";
+
+.mdc-icon-button {
+  &.--primary {
+    @include mdc-icon-button-ink-color(primary);
+  }
+  
+  &.--on-primary {
+    @include mdc-icon-button-ink-color(on-primary);
+  }
+
+  &.--on-surface {
+    @include mdc-icon-button-ink-color(on-surface);
+  }
+}

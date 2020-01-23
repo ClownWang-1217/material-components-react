@@ -1,0 +1,32 @@
+
+@import '@material/fab/_mixins';
+
+$radius:10px;
+$rtl-reflexive:false;
+$width:10px;
+$height:10px;
+$rtl-reflexive:true;
+
+.mdc-fab-shape-radius
+{
+    /*  */
+    @include mdc-fab-shape-radius($radius, $rtl-reflexive);
+
+}
+.mdc-fab-icon-size
+{
+    @include mdc-fab-icon-size($width, $height);
+}
+
+.mdc-fab-shape-radius
+{
+    @include mdc-fab-shape-radius($radius, $rtl-reflexive);
+}
+
+
+.mdc-fab-extended-shape-radius
+{
+    @include mdc-fab-extended-shape-radius($radius, $rtl-reflexive);
+}
+
+

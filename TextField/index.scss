@@ -1,0 +1,6 @@
+@import "./exports";
+@import "@material/textfield/mdc-text-field";
+
+.mdc-text-field {
+  @include mdc-text-field-shape-radius($mdc-text-field-shape-radius);
+}

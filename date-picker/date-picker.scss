@@ -1,0 +1,114 @@
+@import "@material/chips/_mixins";
+@import "@material/icon-button/_mixins";
+$color-background-normal:white;
+$color-background-selected:$mdc-theme-primary;
+.custom-chip{
+    @include mdc-chip-fill-color-accessible($color-background-normal);
+}
+
+.custom-selected{
+    @include mdc-chip-fill-color-accessible($color-background-selected);
+}
+$color-outline:black;
+.custom-outline{
+    @include mdc-chip-outline;
+    @include mdc-chip-outline-color($color-outline);
+    
+}
+.mdc-chip--selected
+{
+    @include mdc-chip-fill-color-accessible($color-background-selected);
+}
+.custom-hidden{
+    visibility: hidden
+}
+$size:'10px';
+.custom-icon-button{
+    //@include mdc-icon-button-size(24px);
+    @include mdc-icon-button-icon-size(24px, 24px, 5px);
+    color: DimGray;
+}
+.years-chip-set{
+    padding: 0px;
+    position: relative;
+    height: 192px;
+    width: 240px;
+    left: 12px;
+}
+.years-chip-set .chip-year-container{
+    margin: 0px; 
+    padding: 0px; 
+    display: inline-block; 
+    line-height: 32px;
+    width: 58px; 
+    text-align: center;
+    font-size: 13px;
+}
+.days-chip-set{
+    padding: 0px; 
+    position: relative;
+    height: 192px;
+    width: 224px; 
+    left: 16px; 
+    top: 10px;
+}
+.chip-day-container{
+    margin: 0px; 
+    padding: 0px; 
+    display: inline-block;
+    line-height: 32px;
+    width: 32px;
+    text-align: center;
+    font-size: 13px;
+}
+.week-container{
+    padding: 0px;
+    position: relative; 
+    height: 20px; 
+    width: 224px; 
+    left: 16px; 
+    top: 4px;
+}
+.week-container .week-label{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    vertical-align: bottom;
+    text-align: center;
+    color: DimGray;
+}
+.menu-body-container{
+
+    position: relative;
+    width: 100%;
+    height: 228px; 
+    bottom: 0px;
+}
+.menu-suface-root{
+    width: 256px; 
+    height: 280px; 
+    overflow: hidden;
+}
+.menu-suface-root .list{
+    padding:0px;
+    overflow: hidden; 
+}
+.menu-suface-root .list .list-div{
+    width: 100%; 
+    height: 52px; 
+    text-align: center;
+}
+.menu-suface-root .list .list-div .list-div-title{
+    position: relative;
+    width: 100%;
+    height: 24px;
+    top: 16px; 
+}
+.menu-suface-root .list .list-div .list-div-title .button{
+    float: left; 
+    left: 24px;
+}
+.menu-suface-root .list .list-div .list-div-title .icon-button-container{
+    float: right; 
+    right: 15px;
+}

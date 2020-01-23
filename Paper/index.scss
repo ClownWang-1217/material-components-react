@@ -1,0 +1,11 @@
+@import "./exports";
+
+.mdc-paper {
+  @include mdc-theme-prop(border-color, $mdc-paper-outlined-border-color);
+  //@include mdc-theme-prop(border-color, primary);
+  @include mdc-theme-prop(background-color, surface);
+  
+  border-radius: $mdc-paper-shape-radius;
+  border-width: 1px;
+  border-style: solid;
+}

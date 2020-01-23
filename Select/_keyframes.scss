@@ -1,0 +1,12 @@
+
+@keyframes mdc-select-float-native-control {
+  0% {
+    transform: translateY(8px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

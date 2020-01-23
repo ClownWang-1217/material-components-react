@@ -1,0 +1,8 @@
+@import "@material/icon-button/_mixins";
+.custom-button{
+    @include mdc-icon-button-size(24px);
+    vertical-align: middle;
+}
+.custom-label{
+    vertical-align: middle;
+}

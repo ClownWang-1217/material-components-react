@@ -1,0 +1,13 @@
+// $mdc-text-field-outlined-idle-border: rgb(211, 214, 226) !default;
+// $mdc-text-field-outlined-disabled-border: rgb(211, 214, 226) !default;
+// $mdc-text-field-outlined-hover-border: rgb(211, 214, 226) !default;
+
+$mdc-text-field-outlined-idle-border: rgba(mdc-theme-prop-value(on-surface), .24) !default;
+$mdc-text-field-outlined-disabled-border: rgba(mdc-theme-prop-value(on-surface), .12) !default;
+$mdc-text-field-outlined-hover-border: rgba(mdc-theme-prop-value(on-surface), .24) !default;
+
+$mdc-text-field-outlined-stroke-width: 1px !default;
+$mdc-text-field-shape-radius: $mdc-theme-shape-radius !default;
+
+
+@import "@material/textfield/variables";

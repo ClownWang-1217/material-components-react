@@ -1,0 +1,112 @@
+@import "@material/select/mixins";
+
+
+
+@mixin mdc-select-ink-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-ink-color_($color);
+  }
+}
+
+@mixin mdc-select-container-fill-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-container-fill-color_($color);
+  }
+}
+
+@mixin mdc-select-focused-label-color($color) {
+  &:not(.mdc-select--disabled) {
+    &.mdc-select--focused .mdc-floating-label {
+      @include mdc-floating-label-ink-color(mdc-theme-prop-value($color));
+    }
+  }
+}
+
+@mixin mdc-select-hover-bottom-line-color($color) {
+  &:not(.mdc-select--disabled) .mdc-select__selected-text:hover {
+    @include mdc-select-native-control-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-select-bottom-line-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-bottom-line-color_($color);
+  }
+}
+
+@mixin mdc-select-focused-bottom-line-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-focused-line-ripple-color_($color);
+  }
+}
+
+@mixin mdc-select-label-color($color) {
+  &:not(.mdc-select--disabled) .mdc-floating-label {
+    @include mdc-floating-label-ink-color($color);
+  }
+}
+
+@mixin mdc-select-outline-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-outline-color_($color);
+  }
+}
+
+@mixin mdc-select-hover-outline-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-hover-outline-color_($color);
+  }
+}
+
+@mixin mdc-select-focused-outline-color($color) {
+  &:not(.mdc-select--disabled) {
+    @include mdc-select-focused-outline-color_($color);
+  }
+}
+
+@mixin mdc-select-shape-radius($radius, $rtl-reflexive: false) {
+  @if length($radius) > 2 {
+    @error "Invalid radius: '#{$radius}' component doesn't allow customizing all corners";
+  }
+
+  $masked-radius: mdc-shape-mask-radius($radius, 1 1 0 0);
+
+  .mdc-select__anchor {
+    @include mdc-shape-radius(mdc-shape-resolve-percentage-radius($mdc-select-height, $masked-radius), $rtl-reflexive);
+  }
+}
+
+@mixin mdc-select-outline-shape-radius($radius, $rtl-reflexive: false) {
+  $resolved-radius: nth(mdc-shape-resolve-percentage-radius($mdc-select-height, mdc-shape-prop-value($radius)), 1);
+
+  @if (length(mdc-shape-prop-value($radius)) > 1) {
+    // stylelint-disable-next-line max-line-length
+    @warn "mdc-select-outline-shape-radius only supports a single radius; see https://github.com/material-components/material-components-web/issues/4140";
+  }
+
+  .mdc-notched-outline {
+    @include mdc-notched-outline-shape-radius($mdc-theme-shape-radius);
+  }
+
+  .mdc-select__selected-text {
+    @include mdc-shape-radius($resolved-radius, $rtl-reflexive);
+  }
+
+  @if ($resolved-radius > $mdc-notched-outline-leading-width) {
+    .mdc-select__selected-text {
+      @include mdc-rtl-reflexive-property(
+        padding,
+        $resolved-radius + $mdc-notched-outline-padding,
+        $mdc-select-arrow-padding
+      );
+    }
+
+    + .mdc-select-helper-text {
+      @include mdc-rtl-reflexive-property(
+        margin,
+        $resolved-radius + $mdc-notched-outline-padding,
+        $mdc-select-outline-label-offset
+      );
+    }
+  }
+}

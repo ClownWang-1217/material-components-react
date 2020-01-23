@@ -1,0 +1,12 @@
+$mdc-checkbox-baseline-theme-color: primary !default;
+$mdc-checkbox-border-width: 1px !default;
+
+$mdc-checkbox-border-color: rgba(mdc-theme-prop-value(on-surface), .24) !default;
+$mdc-checkbox-disabled-color: rgba(mdc-theme-prop-value(on-surface), .10) !default;
+
+$mdc-checkbox-icon-size: 20px !default;
+
+// 圆角控制
+$mdc-checkbox-shape-radius: $mdc-theme-shape-radius !default;
+
+@import "@material/checkbox/variables";

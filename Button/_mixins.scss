@@ -1,0 +1,62 @@
+@import "@material/button/mixins";
+
+@mixin mdc-button-core-styles($query: mdc-feature-all()) {
+  @include mdc-button-without-ripple($query);
+  @include mdc-button-ripple($query);
+  @include mdc-button-without-ripple__extend($query);
+  @include mdc-button-ripple__extend($query);
+}
+
+@mixin mdc-button-without-ripple__extend($query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-button {
+    @include mdc-button-shape-radius($mdc-button-shape-radius, $query: $query);
+  }
+
+  .mdc-button.--secondary {
+    @include mdc-button-ink-color(secondary, $query);
+  }
+  .mdc-button--raised.--secondary,
+  .mdc-button--unelevated.--secondary {
+    @include mdc-button-container-fill-color(secondary, $query);
+    @include mdc-button-ink-color(on-secondary, $query);
+  }
+  .mdc-button--outlined.--secondary {
+    @include mdc-button-outline-color(secondary, $query);
+  }
+
+  .mdc-button.--error {
+    @include mdc-button-ink-color(error, $query);
+  }
+  .mdc-button--raised.--error,
+  .mdc-button--unelevated.--error {
+    @include mdc-button-container-fill-color(error, $query);
+    @include mdc-button-ink-color(on-error, $query);
+  }
+  .mdc-button--outlined.--error {
+    @include mdc-button-outline-color(error, $query);
+  }
+}
+
+@mixin mdc-button-ripple__extend($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  .mdc-button.--secondary {
+    @include mdc-states($color: secondary, $query: $query, $ripple-target: $mdc-button-ripple-target);
+  }
+  .mdc-button--raised.--secondary,
+  .mdc-button--unelevated.--secondary {
+    @include mdc-states($color: on-secondary, $query: $query, $ripple-target: $mdc-button-ripple-target);
+  }
+
+
+  .mdc-button.--error {
+    @include mdc-states($color: error, $query: $query, $ripple-target: $mdc-button-ripple-target);
+  }
+  .mdc-button--raised.--error,
+  .mdc-button--unelevated.--error {
+    @include mdc-states($color: on-error, $query: $query, $ripple-target: $mdc-button-ripple-target);
+  }
+}

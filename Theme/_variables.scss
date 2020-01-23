@@ -1,0 +1,95 @@
+@import "./color-palette";
+@import "./functions";
+
+$dark_: rgb(28, 28, 28);
+
+//$mdc-theme-default: rgb(211, 214, 226) !default;
+
+$mdc-theme-primary: rgb(23, 133, 249) !default;
+$mdc-theme-on-primary: if(mdc-theme-contrast-tone($mdc-theme-primary) == "dark", $dark_, #fff) !default;
+
+$mdc-theme-secondary: green !default;
+$mdc-theme-on-secondary: if(mdc-theme-contrast-tone($mdc-theme-secondary) == "dark", $dark_, #fff) !default;
+
+$mdc-theme-background: #fff !default;
+$mdc-theme-on-background: if(mdc-theme-contrast-tone($mdc-theme-background) == "dark", $dark_, #fff) !default;
+
+$mdc-theme-surface: #eceff1 !default;
+$mdc-theme-on-surface: if(mdc-theme-contrast-tone($mdc-theme-surface) == "dark", $dark_, #fff) !default;
+
+$mdc-theme-error: #ff1313 !default;
+$mdc-theme-on-error: if(mdc-theme-contrast-tone($mdc-theme-error) == "dark", $dark_, #fff) !default;
+
+
+
+$mdc-theme-text-colors: (
+  dark: (
+    primary: rgba($dark_, .87),
+    secondary: rgba($dark_, .54),
+    hint: rgba($dark_, .38),
+    disabled: rgba($dark_, .38),
+    icon: rgba($dark_, .38)
+  ),
+  light: (
+    primary: white,
+    secondary: rgba(white, .7),
+    hint: rgba(white, .5),
+    disabled: rgba(white, .5),
+    icon: rgba(white, .5)
+  )
+) !default;
+
+$mdc-theme-text-emphasis: (
+  high: .87,
+  medium: .54,
+  disabled: .38,
+) !default;
+
+@function mdc-theme-ink-color-for-fill_($text-style, $fill-color) {
+  @return map-get(map-get($mdc-theme-text-colors, mdc-theme-contrast-tone($fill-color)), $text-style);
+}
+
+$mdc-theme-property-values: (
+  //inactive: $mdc-theme-default,
+  primary: $mdc-theme-primary,
+  secondary: $mdc-theme-secondary,
+  background: $mdc-theme-background,
+  surface: $mdc-theme-surface,
+  error: $mdc-theme-error,
+
+  on-primary: $mdc-theme-on-primary,
+  on-secondary: $mdc-theme-on-secondary,
+  on-background: $mdc-theme-on-background,
+  on-surface: $mdc-theme-on-surface,
+  on-error: $mdc-theme-on-error,
+
+  text-primary-on-background: mdc-theme-ink-color-for-fill_(primary, $mdc-theme-background),
+  text-secondary-on-background: mdc-theme-ink-color-for-fill_(secondary, $mdc-theme-background),
+  text-hint-on-background: mdc-theme-ink-color-for-fill_(hint, $mdc-theme-background),
+  text-disabled-on-background: mdc-theme-ink-color-for-fill_(disabled, $mdc-theme-background),
+  text-icon-on-background: mdc-theme-ink-color-for-fill_(icon, $mdc-theme-background),
+
+  text-primary-on-surface: mdc-theme-ink-color-for-fill_(primary, $mdc-theme-surface),
+  text-secondary-on-surface: mdc-theme-ink-color-for-fill_(secondary, $mdc-theme-surface),
+  text-hint-on-surface: mdc-theme-ink-color-for-fill_(hint, $mdc-theme-surface),
+  text-disabled-on-surface: mdc-theme-ink-color-for-fill_(disabled, $mdc-theme-surface),
+  text-icon-on-surface: mdc-theme-ink-color-for-fill_(icon, $mdc-theme-surface),
+
+  text-primary-on-light: mdc-theme-ink-color-for-fill_(primary, light),
+  text-secondary-on-light: mdc-theme-ink-color-for-fill_(secondary, light),
+  text-hint-on-light: mdc-theme-ink-color-for-fill_(hint, light),
+  text-disabled-on-light: mdc-theme-ink-color-for-fill_(disabled, light),
+  text-icon-on-light: mdc-theme-ink-color-for-fill_(icon, light),
+
+  text-primary-on-dark: mdc-theme-ink-color-for-fill_(primary, dark),
+  text-secondary-on-dark: mdc-theme-ink-color-for-fill_(secondary, dark),
+  text-hint-on-dark: mdc-theme-ink-color-for-fill_(hint, dark),
+  text-disabled-on-dark: mdc-theme-ink-color-for-fill_(disabled, dark),
+  text-icon-on-dark: mdc-theme-ink-color-for-fill_(icon, dark)
+) !default;
+
+
+// 全局圆角控制
+$mdc-theme-shape-radius: 0px !default;
+
+@import "@material/theme/variables"

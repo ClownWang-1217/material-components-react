@@ -1,0 +1,53 @@
+@import "@material/menu-surface/mixins";
+
+
+@mixin mdc-menu-surface-core-styles($query: mdc-feature-all()) {
+  $feat-structure: mdc-feature-create-target($query, structure);
+
+  // postcss-bem-linter: define menu-surface
+  .mdc-menu-surface {
+    @include mdc-menu-surface-base_($query);
+    @include mdc-elevation($z-value: 8, $query: $query);
+    @include mdc-menu-surface-fill-color(surface, $query);
+    @include mdc-menu-surface-ink-color(on-surface, $query);
+    @include mdc-menu-surface-shape-radius($mdc-theme-shape-radius, false, $query);
+
+    @include mdc-feature-targets($feat-structure) {
+      @include mdc-rtl-reflexive-property(transform-origin, top left, top right);
+    }
+  }
+
+  .mdc-menu-surface--anchor {
+    @include mdc-feature-targets($feat-structure) {
+      position: relative;
+      overflow: visible;
+    }
+  }
+
+  .mdc-menu-surface--fixed {
+    @include mdc-feature-targets($feat-structure) {
+      position: fixed;
+    }
+  }
+  // postcss-bem-linter: end
+}
+
+@mixin mdc-menu-surface-ink-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(color, $color);
+  }
+}
+
+@mixin mdc-menu-surface-fill-color($color, $query: mdc-feature-all()) {
+  $feat-color: mdc-feature-create-target($query, color);
+
+  @include mdc-feature-targets($feat-color) {
+    @include mdc-theme-prop(background-color, $color);
+  }
+}
+
+@mixin mdc-menu-surface-shape-radius($radius, $rtl-reflexive: false, $query: mdc-feature-all()) {
+  @include mdc-shape-radius($radius, $rtl-reflexive, $query: $query);
+}

@@ -1,0 +1,24 @@
+@import "@material/density/variables";
+
+$mdc-button-height: 36px !default;
+$mdc-button-horizontal-padding: 8px !default;
+$mdc-button-contained-horizontal-padding: 16px !default;
+
+$mdc-button-minimum-height: 24px !default;
+$mdc-button-maximum-height: $mdc-button-height !default;
+$mdc-button-density-scale: $mdc-density-default-scale !default;
+$mdc-button-density-config: (
+  height: (
+    default: $mdc-button-height,
+    maximum: $mdc-button-maximum-height,
+    minimum: $mdc-button-minimum-height,
+  ),
+) !default;
+
+$mdc-button-outlined-border-width: 1px !default;
+$mdc-button-shape-radius: $mdc-theme-shape-radius !default;
+
+$mdc-button-disabled-ink-color: rgba(mdc-theme-prop-value(on-surface), mdc-theme-text-emphasis("disabled")) !default;
+
+
+@import "@material/button/variables";
